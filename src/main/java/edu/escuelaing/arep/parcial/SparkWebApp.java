@@ -2,6 +2,7 @@ package edu.escuelaing.arep.parcial;
 
 import static spark.Spark.*;
 
+import edu.escuelaing.arep.parcial.cache.weatherCache;
 import edu.escuelaing.arep.parcial.connection.HttpConnection;
 import edu.escuelaing.arep.parcial.connection.HttpConnectionImpl;
 import spark.Request;
@@ -24,7 +25,7 @@ public class SparkWebApp
     public static void main(String[] args) {
         port(getPort());
         get("/hello", (req, res) -> "Hello Heroku");
-        get("/weather", (req, res) -> resultsPage(req, res));
+        get("/clima", (req, res) -> resultsPage(req, res));
     }
 
     /**
@@ -34,9 +35,12 @@ public class SparkWebApp
      * @return String que contiene el codigo generado del HTML
      */
     private static String resultsPage(Request req, Response res) throws IOException {
-        HttpConnection http = new HttpConnectionImpl();
+        //HttpConnection http = new HttpConnectionImpl();
+        weatherCache cache = new weatherCache();
         String par = req.queryParams("lugar");
-        String json = http.getWeatherByCity(par);
+        //String json = http.getWeatherByCity(par);
+        String json = cache.getCity(par);
+        System.out.println(json);
         return "<!DOCTYPE html>"
                 + "<html>"
                 + "<head>"

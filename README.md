@@ -4,7 +4,7 @@
 Si se deseea hacer uso del programa lo primero que debe realizarse el clonar el repositorio almacenado en Github a través del siguiente comando:
 
 ```
-git clone https://github.com/csarssj/AREP-LAB-3.git
+https://github.com/csarssj/AREP-PARCIAL-1
 
 ```
 O si desea puede descargarlo como archivo zip y luego descomprimirlo en la carpeta que desee.
@@ -31,7 +31,7 @@ java -cp target/classes;target/dependency/* edu.escuelaing.arep.parcial.SparkWeb
 ```
 o ingresando a través de este link desplegado en heroku:
 
-[heroku](https://calm-river-34689.herokuapp.com/weather?lugar=bogota)
+[heroku](https://calm-river-34689.herokuapp.com/clima?lugar=bogota)
 
 ![image](https://github.com/csarssj/AREP-PARCIAL-1/blob/main/img/prueba.png)
 
@@ -55,11 +55,11 @@ El sistema, mas alla de facilitar el registro de las iniciativas e ideas de proy
 
 ## Despliegue en heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://calm-river-34689.herokuapp.com/weather?lugar=bogota)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://calm-river-34689.herokuapp.com/clima?lugar=bogota)
 
 *Puede acceder a los recursos:*
 
-	- *Resuesta del mapeo /weather accediendo a la ciudad determinada, ejemplo Bogotá:* https://calm-river-34689.herokuapp.com/weather?lugar=bogota
+	- *Resuesta del mapeo /clima accediendo a la ciudad determinada, ejemplo Bogotá:* https://calm-river-34689.herokuapp.com/clima?lugar=bogota
 
 
 ## Control de versiones 
