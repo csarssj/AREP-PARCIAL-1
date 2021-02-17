@@ -16,8 +16,6 @@ mvn package
 
 ```
 
-![image](https://github.com/csarssj/AREP-LAB-1/blob/master/resources/compilado.png)
-
 Ejecutando el siguiente comando puede generar la documentacion:
 
 ```
@@ -35,7 +33,7 @@ o ingresando a través de este link desplegado en heroku:
 
 [heroku](https://calm-river-34689.herokuapp.com/weather?lugar=bogota)
 
-![image](https://github.com/csarssj/AREP-PARCIAL-1/blob/master/img/prueba.png)
+![image](https://github.com/csarssj/AREP-PARCIAL-1/blob/main/img/prueba.png)
 
 ### Prerequisitos
 
