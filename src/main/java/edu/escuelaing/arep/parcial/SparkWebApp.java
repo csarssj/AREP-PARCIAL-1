@@ -1,8 +1,14 @@
 package edu.escuelaing.arep.parcial;
 
 import static spark.Spark.*;
+
+import edu.escuelaing.arep.parcial.connection.HttpConnection;
+import edu.escuelaing.arep.parcial.connection.HttpConnectionImpl;
 import spark.Request;
 import spark.Response;
+
+import java.io.IOException;
+
 /**
  * Clase principal donde se inicia la aplicación web construida con spark
  *
@@ -18,9 +24,40 @@ public class SparkWebApp
     public static void main(String[] args) {
         port(getPort());
         get("/hello", (req, res) -> "Hello Heroku");
+        get("/weather", (req, res) -> resultsPage(req, res));
     }
 
     /**
+     * Pagina que da el resultado de los calculos
+     * @param req Tiene la informacion de la petición.
+     * @param res Tiene la información con la respuesta del servidor.
+     * @return String que contiene el codigo generado del HTML
+     */
+    private static String resultsPage(Request req, Response res) throws IOException {
+        HttpConnection http = new HttpConnectionImpl();
+        String par = req.queryParams("lugar");
+        String json = http.getWeatherByCity(par);
+        return "<!DOCTYPE html>"
+                + "<html>"
+                + "<head>"
+                + "<style>"
+                + "body {text-align: center;"
+                + " font-family: \"new century schoolbook\";}"
+                + "h2 {text-align: center;}"
+                + "p {text-align: center;}"
+                + "a {text-align: center;}"
+                + "div {text-align: center;}"
+                + "form action {text-align: center;}"
+                + "</style>"
+                + "</head>"
+                +"<title>OpenWeather</title>"
+                + "<body style=\"background-color:powderblue;\">"
+                + "<h2 text-aling =\"center\">El Json de la ciudad es </h2>"
+                + "<p>" +json+ "</p>"
+                + "<br>"
+                + "</body>"
+                + "</html>";
+    }
 
 
     /**
@@ -33,4 +70,5 @@ public class SparkWebApp
         }
         return 4567; //returns default port if heroku-port isn't set (i.e. on localhot)
     }
+
 }
